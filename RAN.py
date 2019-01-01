@@ -15,6 +15,7 @@ from keras.optimizers import SGD
 from keras.layers import Input, Dense, Conv2D, Activation, BatchNormalization,\
      MaxPooling2D, UpSampling2D, AveragePooling2D, Add, Multiply
 
+#The Definition of ResidualUnit
 def ResidualUnit(x,paras,stride=1):
 
     x_ = BatchNormalization()(x)
@@ -167,5 +168,6 @@ to 224x224 resolution.
     
 """
 
+#Plot the Model Structure
 from keras.utils import plot_model
 plot_model(model, to_file='model.png')
