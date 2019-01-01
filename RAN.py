@@ -11,6 +11,7 @@
 """
 
 from keras.models import Model
+from keras.optimizers import SGD
 from keras.layers import Input, Dense, Conv2D, Activation, BatchNormalization,\
      MaxPooling2D, UpSampling2D, AveragePooling2D, Add, Multiply
 
@@ -153,7 +154,8 @@ x14 = Activation('softmax')(x14)
 
 #Compile Model
 model = Model(inputs=x0, outputs=x14)
-model.compile
+model.compile(optimizer=SGD(lr=0.1, momentum=0.9),loss='mean_squared_error',
+              metrics=['mae', 'acc'])
 
 """
 You can Train this Model by parsing
